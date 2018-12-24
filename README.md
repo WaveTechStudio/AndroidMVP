@@ -8,14 +8,10 @@ Android Support Repository
 
 ## Features
 
-You can add data of each item
-- Item title
-- Item price
-- Item cost
-- Item location
-- Item picture (You can take picture from Camera or choose from Gallery)
-- Items can be synced with firebase cloud to save and access remotely
-- Item can be edit/delete/update
+Simple login screen.
+- Fake API call for delay
+- View interaction with presenter
+- Presenter interaction with View/Model
 
 # [Architecture used](https://github.com/googlesamples/android-architecture "Architecture used")
 
@@ -26,13 +22,6 @@ You can add data of each item
 
     // App's dependencies
     implementation 'com.android.support:appcompat-v7:28.0.0'
-
-
-### Libraries used
-##### [Glide](https://github.com/bumptech/glide "Glide")
-For Image loading
-##### [Rximagepicker](https://github.com/MLSDev/RxImagePicker "Rximagepicker")
-For Image picking from Camera/Gallery
 
 
 ### [Firebase Realtime Database (JSON Structured)](https://firebase.google.com/docs/database/security/ "Firebase Realtime Database (JSON Structured)")
@@ -62,22 +51,50 @@ For Image picking from Camera/Gallery
 
 ### [Firebase database rules](https://firebase.google.com/docs/database/security/ "Firebase database rules")
 
-      These rules allows everyone to read & write data without authentication. Currently for testing purposes we have applied these so everyone can read and write.
-    {
-       "rules": {
-          ".read": true,
-         ".write": true
-        }
-    }
-	
-	The below rules allow authenticated users only to read or write data.
-     {
-       "rules": {
-           ".read": "auth != null",
-          ".write": "auth != null"
-     }
+      public class MainActivityPresenter {
+
+    private User user;
+    private View mainActivityView;
+
+    public MainActivityPresenter(View mainActivityView) {
+        this.user = new User();
+        this.mainActivityView = mainActivityView;
     }
 
+    public void loginAPICall(String email, String password) {
+        user.setEmail(email);
+        user.setPassword(password);
+
+        //Do API call here, I am adding dummy loader/for delay
+        mainActivityView.showProgressBar();
+
+        new CountDownTimer(3000, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+            }
+
+            public void onFinish() {
+
+                mainActivityView.updateLoginResponse("Successfully logged in with these credentials: \n\n" + user.toString());
+
+                mainActivityView.clearInputFeilds();
+                mainActivityView.hideProgressBar();
+            }
+        }.start();
+    }
+
+    public interface View {
+
+        void updateLoginResponse(String response);
+
+        void clearInputFeilds();
+
+        void showProgressBar();
+
+        void hideProgressBar();
+
+    }
+}
 
 ## How to run a sample
 - Clone or download the project open it with Android Studio compile and run it will work.
