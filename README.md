@@ -84,8 +84,8 @@ For Image picking from Camera/Gallery
 
 
 ### Images
-<img src="./screens/01.png" width="200"/> <img src="./screens/02.png" width="200"/>
- <img src="./screens/03.png" width="200"/>
+<img src="./screens/1.png" width="200"/> <img src="./screens/2.png" width="200"/>
+ <img src="./screens/3.png" width="200"/>
 <br/>
 
 
