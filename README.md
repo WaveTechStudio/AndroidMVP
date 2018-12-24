@@ -51,7 +51,8 @@ Simple login screen.
 
 ### [Firebase database rules](https://firebase.google.com/docs/database/security/ "Firebase database rules")
 
-public class MainActivityPresenter {
+
+  public class MainActivityPresenter {
 
     private User user;
     private View mainActivityView;
@@ -94,7 +95,7 @@ public class MainActivityPresenter {
         void hideProgressBar();
 
     }
-}
+ }
 
 ## How to run a sample
 - Clone or download the project open it with Android Studio compile and run it will work.
