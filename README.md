@@ -1,21 +1,17 @@
 ## AndroidMVP
-An Android based Todo app for tracking items. You can add items with their Title, Cost, Location, Description and Image.
+It is a simple MVP android project to understand the basic concept on MVP architecture.
 
 ## Prerequisites
-Android SDK v24
+Android SDK v28
 Latest Android Build Tools
 Android Support Repository
 
 ## Features
 
-You can add data of each item
-- Item title
-- Item price
-- Item cost
-- Item location
-- Item picture (You can take picture from Camera or choose from Gallery)
-- Items can be synced with firebase cloud to save and access remotely
-- Item can be edit/delete/update
+Simple login screen.
+- Fake API call for delay
+- View interaction with presenter
+- Presenter interaction with View/Model
 
 # [Architecture used](https://github.com/googlesamples/android-architecture "Architecture used")
 
@@ -25,94 +21,54 @@ You can add data of each item
 ### Dependencies used
 
     // App's dependencies
-    implementation 'com.android.support:appcompat-v7:27.1.1'
-    implementation 'com.android.support:cardviewv7:27.1.1'
-    implementation 'com.android.support:design:27.1.1'
-    implementation 'com.android.support:recyclerview-v7:27.1.1'
-    implementation 'com.android.support:support-v4:27.1.'
-    implementation 'com.mlsdev.rximagepicker:library:2.0.2'
-    implementation 'com.github.bumptech.glide:glide:4.4.0'
-    implementation 'com.google.firebase:firebase-database:15.0.1'
+    implementation 'com.android.support:appcompat-v7:28.0.0'
 
+### Presenter class for communication
 
-    implementation 'com.android.support.test.espresso:espresso-idling-resource:3.0.1'
-    implementation 'com.google.guava:guava:18.0'
-    implementation 'android.arch.persistence.room:runtime:1.0.0'
-    annotationProcessor 'android.arch.persistence.room:compiler:1.0.0'
+   public class MainActivityPresenter {
 
-    // Dependencies for local unit tests
-    testImplementation 'junit:junit:4.12'
-    testImplementation 'org.mockito:mockito-all:1.10.19'
-    testImplementation 'org.hamcrest:hamcrest-all:1.3'
+    private User user;
+    private View mainActivityView;
 
-    // Android Testing Support Library's runner and rules
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test:rules:1.0.1'
-    androidTestImplementation 'android.arch.persistence.room:testing:1.0.0'
-
-    // For unit tests
-    androidTestImplementation 'junit:junit:4.12'
-    androidTestImplementation 'org.mockito:mockito-core:1.10.19'
-    androidTestImplementation 'com.google.dexmaker:dexmaker:1.2'
-    androidTestImplementation 'com.google.dexmaker:dexmaker-mockito:1.2'
-
-    // Espresso UI Testing
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-contrib:3.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-intents:3.0.1'
-    androidTestImplementation 'com.android.support.test.espresso.idling:idling-concurrent:3.0.1'
-    implementation 'com.android.support.test.espresso:espresso-idling-resource:3.0.1'
-
-
-### Libraries used
-##### [Glide](https://github.com/bumptech/glide "Glide")
-For Image loading
-##### [Rximagepicker](https://github.com/MLSDev/RxImagePicker "Rximagepicker")
-For Image picking from Camera/Gallery
-
-
-### [Firebase Realtime Database (JSON Structured)](https://firebase.google.com/docs/database/security/ "Firebase Realtime Database (JSON Structured)")
-
-      {
-         "items": [
-             "-0f3b6efb-7689-4f2b-b6a0-e135b9a85fd8" : {
-			 "id" : "123"
-             "title" : "Buying Shoes",
-             "cost" : "200"
-			 "location" : "Gullberg III, Lahore, Pakistan"
-			 "description" : "I am buying sports shoes from NIKE. "
-			 "imagePath" : "...../shoesimage.png"
-               }
-		 ]
-	  }
-	  
-### Database local table 
-| items       | Value |
-| --------- |-----|
-| id  | 123 |
-| title     |   Buying Shoes |
-| cost      |    200$ |
-| location      |    Gullberg III, Lahore, Pakistan |
-| description      |    I am buying sports shoes from NIKE. |
-| imagePath      |    ...../shoesimage.png |
-
-### [Firebase database rules](https://firebase.google.com/docs/database/security/ "Firebase database rules")
-
-      These rules allows everyone to read & write data without authentication. Currently for testing purposes we have applied these so everyone can read and write.
-    {
-       "rules": {
-          ".read": true,
-         ".write": true
-        }
+    public MainActivityPresenter(View mainActivityView) {
+        this.user = new User();
+        this.mainActivityView = mainActivityView;
     }
-	
-	The below rules allow authenticated users only to read or write data.
-     {
-       "rules": {
-           ".read": "auth != null",
-          ".write": "auth != null"
+
+    public void loginAPICall(String email, String password) {
+        user.setEmail(email);
+        user.setPassword(password);
+
+        //Do API call here, I am adding dummy loader/for delay
+        mainActivityView.showProgressBar();
+
+        new CountDownTimer(3000, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+            }
+
+            public void onFinish() {
+
+                mainActivityView.updateLoginResponse("Successfully logged in with these credentials: \n\n" + user.toString());
+
+                mainActivityView.clearInputFeilds();
+                mainActivityView.hideProgressBar();
+            }
+        }.start();
+    }
+
+    public interface View {
+
+        void updateLoginResponse(String response);
+
+        void clearInputFeilds();
+
+        void showProgressBar();
+
+        void hideProgressBar();
+
      }
-    }
+   }
 
 
 ## How to run a sample
@@ -120,8 +76,8 @@ For Image picking from Camera/Gallery
 
 
 ### Images
-<img src="./screens/01.png" width="200"/> <img src="./screens/02.png" width="200"/> <img src="./screens/03.png" width="200"/>
-<img src="./screens/04.png" width="200"/><img src="./screens/05.png" width="200"/>
+<img src="./screens/1.png" width="200"/> <img src="./screens/2.png" width="200"/>
+ <img src="./screens/3.png" width="200"/>
 <br/>
 
 
