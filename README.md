@@ -30,7 +30,7 @@ Simple login screen.
         presenter.loginAPICall("email", "password");  
    after calling this there would be a dummy loader for fake API call (see MainActivityPresenter class) and return response to View. 
    
-        mainActivityView.updateLoginResponse("Successfully logged in with these credentials: \n\n" + user.toString());
+       mainActivityView.updateLoginResponse("Successfully logged in with these credentials: \n\n" + user.toString());
        mainActivityView.clearInputFeilds();
        mainActivityView.hideProgressBar();
 
