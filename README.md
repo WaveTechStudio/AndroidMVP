@@ -52,6 +52,7 @@ Simple login screen.
 ### [Firebase database rules](https://firebase.google.com/docs/database/security/ "Firebase database rules")
 
 
+  
   public class MainActivityPresenter {
 
     private User user;
