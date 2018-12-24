@@ -16,11 +16,24 @@ Simple login screen.
 ## Description
 
 - MainActivity implements MainActivityPresenter.View and overrides these methods.
-        #void updateLoginResponse(String response);
-        #void clearInputFeilds();
-        #void showProgressBar();
-        #void hideProgressBar();
+
+        public interface View {
+          void updateLoginResponse(String response);
+          void clearInputFeilds();
+          void showProgressBar();
+          void hideProgressBar();
+        }
+                
 - You can add any dummy credentials on login screen to proceed View communicates to presenter.
+
+        private MainActivityPresenter presenter = new MainActivityPresenter(this);
+        presenter.loginAPICall("email", "password");  
+   after calling this there would be a dummy loader for fake API call (see MainActivityPresenter class) and return response to View. 
+   
+        mainActivityView.updateLoginResponse("Successfully logged in with these credentials: \n\n" + user.toString());
+       mainActivityView.clearInputFeilds();
+       mainActivityView.hideProgressBar();
+
 
 # [Architecture used](https://github.com/googlesamples/android-architecture "Architecture used")
 
@@ -29,7 +42,7 @@ Simple login screen.
 
 ### Dependencies used
 
-    // App's dependencies
+    //App's dependencies
     implementation 'com.android.support:appcompat-v7:28.0.0'
 
 ### Presenter class for communication
