@@ -25,43 +25,7 @@ You can add data of each item
 ### Dependencies used
 
     // App's dependencies
-    implementation 'com.android.support:appcompat-v7:27.1.1'
-    implementation 'com.android.support:cardviewv7:27.1.1'
-    implementation 'com.android.support:design:27.1.1'
-    implementation 'com.android.support:recyclerview-v7:27.1.1'
-    implementation 'com.android.support:support-v4:27.1.'
-    implementation 'com.mlsdev.rximagepicker:library:2.0.2'
-    implementation 'com.github.bumptech.glide:glide:4.4.0'
-    implementation 'com.google.firebase:firebase-database:15.0.1'
-
-
-    implementation 'com.android.support.test.espresso:espresso-idling-resource:3.0.1'
-    implementation 'com.google.guava:guava:18.0'
-    implementation 'android.arch.persistence.room:runtime:1.0.0'
-    annotationProcessor 'android.arch.persistence.room:compiler:1.0.0'
-
-    // Dependencies for local unit tests
-    testImplementation 'junit:junit:4.12'
-    testImplementation 'org.mockito:mockito-all:1.10.19'
-    testImplementation 'org.hamcrest:hamcrest-all:1.3'
-
-    // Android Testing Support Library's runner and rules
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test:rules:1.0.1'
-    androidTestImplementation 'android.arch.persistence.room:testing:1.0.0'
-
-    // For unit tests
-    androidTestImplementation 'junit:junit:4.12'
-    androidTestImplementation 'org.mockito:mockito-core:1.10.19'
-    androidTestImplementation 'com.google.dexmaker:dexmaker:1.2'
-    androidTestImplementation 'com.google.dexmaker:dexmaker-mockito:1.2'
-
-    // Espresso UI Testing
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-contrib:3.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-intents:3.0.1'
-    androidTestImplementation 'com.android.support.test.espresso.idling:idling-concurrent:3.0.1'
-    implementation 'com.android.support.test.espresso:espresso-idling-resource:3.0.1'
+    implementation 'com.android.support:appcompat-v7:28.0.0'
 
 
 ### Libraries used
@@ -120,8 +84,8 @@ For Image picking from Camera/Gallery
 
 
 ### Images
-<img src="./screens/01.png" width="200"/> <img src="./screens/02.png" width="200"/> <img src="./screens/03.png" width="200"/>
-<img src="./screens/04.png" width="200"/><img src="./screens/05.png" width="200"/>
+<img src="./screens/01.png" width="200"/> <img src="./screens/02.png" width="200"/>
+ <img src="./screens/03.png" width="200"/>
 <br/>
 
 
