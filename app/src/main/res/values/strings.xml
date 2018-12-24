@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MVP</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="empty_feild_error">Please fill all fields</string>
+</resources>
