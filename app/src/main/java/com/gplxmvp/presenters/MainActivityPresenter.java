@@ -18,7 +18,7 @@ public class MainActivityPresenter {
         user.setEmail(email);
         user.setPassword(password);
 
-        //Do Apa call here, I am adding dummy loader/for delay
+        //Do API call here, I am adding dummy loader/for delay
         mainActivityView.showProgressBar();
 
         new CountDownTimer(3000, 1000) {
