@@ -25,7 +25,7 @@ Simple login screen.
 
 ### Presenter class for communication
 
-  public class MainActivityPresenter {
+   public class MainActivityPresenter {
 
     private User user;
     private View mainActivityView;
@@ -67,8 +67,9 @@ Simple login screen.
 
         void hideProgressBar();
 
-    }
- }
+     }
+   }
+
 
 ## How to run a sample
 - Clone or download the project open it with Android Studio compile and run it will work.
