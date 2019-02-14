@@ -101,7 +101,7 @@ Simple login screen.
 
 
 ## Author
-[Waheed Nazir (WaveTechStudio)](https://www.linkedin.com/in/waheed-nazir-36521579/ "Waheed Nazir (WaveTechStudio)")
+[Waheed Nazir](https://www.linkedin.com/in/waheed-nazir-36521579/ "Waheed Nazir (WaveTechStudio)")
 
 ## License
 It is totally free to use. :)
